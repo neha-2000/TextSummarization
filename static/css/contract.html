@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+box-sizing: border-box;
+background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(bg2.jpg);
+background-size:1900px 1200px;
+
+}
+.head{
+	background: linear-gradient(-45deg, #FD9A01, #FD6104, #FFCE03);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.bt
+{
+height:80px;
+margin-top:2%;
+
+}
+.button {
+  border-radius: 4px;
+  background-color: #ff9900;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left:2%;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.bk_button {
+  border-radius: 4px;
+  background-color: #ff9900;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left:33%;
+}
+
+.bk_button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.bk_button span:after {
+  content: '\00AB';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.bk_button:hover span {
+  padding-left: 25px;
+}
+
+.bk_button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+
+
+/* Set height of body and the document to 100% */
+
+
+/* Style tab links */
+.tablink {
+    background-color: white;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    /*padding: 14px 16px;*/
+    font-size: 17px;
+    width: 50%;
+}
+
+.tablink:hover {
+    background-color: white;
+}
+
+
+textarea{
+margin-left:32%;
+margin-top:1%;
+margin-bottom:0px;
+border-radius:15px;
+border:5px solid #ff9900;
+/*box-shadow: 0px 0px 40px 3px #ffa700;*/
+
+}
+
+h3{
+color: #fff;
+font-size: 20px;
+margin-left:22%;
+}
+h1{
+color: white;
+font-size: 30px;
+margin-left:40%;
+padding-top:5px;
+padding-bottom:5px;
+margin-top:0px;
+}
+
+::placeholder{
+font-size:26px;
+text-align:center;
+}
+
+p
+{
+font-size:20px;
+border-radius:25px;
+background:white;
+color:black;
+border:1px solid white;
+margin-top:50px;
+margin-right:10%;
+margin-left:10%;
+padding:10px 0px 10px 25px;
+text-align:center;
+}
+
+form
+{
+padding-top:0px;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<div class="head">
+  <h1 marquee behavior="alternate">Legal Contract Analyzer</h1>
+</div>
+
+
+<p>More specific summarization systems could be developed to analyze legal documents. In this case, a summarizer might add value by condensing a contract to the riskier clauses, or help you compare agreements</p>
+
+<form action="http://127.0.0.1:5000/summary", method='POST'>
+
+  <textarea cols="60" rows="40" wrap="hard" name="document" id="document" placeholder="Paste Your Contract Here.." required></textarea>
+<div class="bt">
+<button class="bk_button" type="button" onclick="ff()"><span> Back </span></button>
+  <script>
+    function ff()
+    {
+        window.history.back();
+    }
+  </script>
+<button class="button" type="submit" value="submit"><span> Summarize </span></button>
+</div>
+</form>
+
+
+  <script>
+  $(document).on('ready', function() {
+      $("#input-folder-1").fileinput({
+          browseLabel: 'Select Folder...'
+      });
+  });
+  </script>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#ENTER_TEXT {background-color: #593433;}
+#BROWSE_FILES {background-color: #760099;}
+</style>
+</head>
+<body>
+
+<div class="page-header text-center text-primary" style="height: 50px;">
+  <h1 class = "marquee behavior="alternate"">TEXT SUMMARIZATION</h1>
+</div>
+<button class="tablink" onclick="openPage('ENTER_TEXT', this, '#593433')"id="defaultOpen">ENTER_TEXT</button>
+
+
+
+ <form action="http://127.0.0.1:5000/summary",  method='POST'>
+
+<div name="ENTER_TEXT" id="ENTER_TEXT" class="tabcontent" style="height: 600px">
+  <h3>ENTER_TEXT</h3>
+  <textarea cols="90" rows="20" wrap="hard" name="document" id="document" required></textarea>
+	
+</div>
+
+   <button  class="button" id="submit" type="submit" value="submit"><span> Summarize </span></button>
+</form>
+
+
+<div>
+
+
+  <script>
+  $(document).on('ready', function() {
+      $("#input-folder-1").fileinput({
+          browseLabel: 'Select Folder...'
+      });
+  });
+  </script>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

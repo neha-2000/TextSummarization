@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style>
+          .container{
+            width : 600px;
+            height : 300px;
+            margin : auto;
+
+            text-align: center;
+            padding: 10px 60px 20px 60px;
+
+        }
+        .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        }
+        .btn{
+        margin: auto;
+    width: 50%;
+    padding: 20px 20px 20px 20px;
+    margin-top: 30px;
+    color: white;
+    background: green;
+    font-size: 26px;
+    font-weight: bold;
+    border: none;
+        }
+        input{
+        margin-top: 30px;
+        padding: 20px 20px 20px 20px;
+            background: #e3e3de;
+    border: none;
+        }
+        h1{
+            color: gold;
+        }
+.btn:hover{
+    background: crimson;
+    color: white;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="static/bertHead.jpg" width="100%" height="200px"/>
+
+<h1 >TEXT SUMMERIAZATION USING <span>BERT</span></h1>
+<form  action="http://127.0.0.1:5000/bert" method="post"  class="form">
+    <input placeholder="Enter Url" type="text" name="url" id="url">
+    <input placeholder="Enter number of Lines" type="text" name="line" id="line">
+    <button class="btn" type="submit" name="submit" id="submit">Generate Summary</button>
+</form>
+</div>
+</body>
+</html>
