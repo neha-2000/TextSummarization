@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+         .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(61, 54, 54) 100%), url("/static/img/bg1.jpeg");
+            background-blend-mode: color;
+            width: 100%;
+            height: 100vh;
+           
+        }
+        .container:hover {
+            background-image: linear-gradient(to right, blue 0%, red 100%), url("/static/img/bg1.jpeg");
+
+        }
+        .container h1{
+            color: white;
+            font-size: 50px;
+        }
+        .container p{
+            color: white;
+            background: crimson;
+            padding: 30px 30px 30px 30px;
+           margin-left: 100px;
+           margin-right: 100px;
+           border-radius: 30px;
+           font-size: 25px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Helooo loading our summary</h1>
-    {{output}}
+    <div class="container">
+        <h1>Our Auto generated summary</h1>
+        <p> {{output}}</p>
+       
+    </div>
 </body>
+
 </html>

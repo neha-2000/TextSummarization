@@ -6,24 +6,154 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* body {
+        
+            background: url("/static/img/images.png")
+        } */
+
+        nav {
+            background: black;
+            color: crimson;
+            height: 100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        img {
+            margin-left: 30px;
+            margin-top: 20px;
+            border-radius: 50%;
+            width: 60px;
+        }
+
+        ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+        }
+
+        li {}
+
+        .title {
+            margin-left: 10px;
+            margin-top: 30px;
+            font-size: 30px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            color: white;
+           background-repeat: no-repeat;
+           /* background-image: url("/static/img/bg1.jpeg"); */
+           background-size:cover;
+           /* background-blend-mode: gray; */
+           /* background-image: linear-gradient(to right,blue 0%,red 100%),url("/static/img/bg1.jpeg"); */
+           background-image: linear-gradient(to right,rgb(0, 0, 0) 0%,rgb(61, 54, 54) 100%),url("/static/img/bg1.jpeg"); 
+           background-blend-mode:color;
+        
+          
+        }
+        .container:hover{
+            background-image: linear-gradient(to right,blue 0%,red 100%),url("/static/img/bg1.jpeg");
+
+        }
+
+        .center {
+            position: absolute;
+            top: 30%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+        .center h2{
+            color: rgb(80, 212, 245);
+            /* color: rgb(0, 255, 13); */
+            font-size:51px;
+        }
+        .center p{
+            color: white;
+            font-size:40px;
+            font-weight: bold;
+            
+        }
+        
+
+        .box1 {
+            margin-top: 30px;
+            border-radius: border-box;
+            width: 400px;
+            height: 50px;
+            font-size:10px;
+            /* padding: 10px 10px 10px 10px; */
+            border: none;
+            border-radius: 40px;
+            background: green;
+
+        }
+
+        .box1 a{
+            color: white;
+            text-decoration: none;
+            
+        }
+        .box1:hover{
+            background: crimson;
+        }
+
+        
+    </style>
 </head>
 
 <body>
-    <h1>Helooooo</h1>
-    <button>
-        <a href="{{url_for('bert')}}">
+    <nav>
+        <ul>
+            <li><img src="\static\img\logo.jpg"></li>
+            <li>
+                <h1 class="title">Automatic Text Summarizer</h1>
+            </li>
+        </ul>
+    </nav>
 
-            <h1>BERT Summarizer Model</h1>
+    <div class="container">
+        <div class="center">
+            <h2>TEXT SUMMER and VIDEO SUMMER</h2>
+            <p>Summerize your Text and Video</p>
+            <button class="box1" >
+                <a href="{{url_for('bert')}}">
+    
+                    <h1 class="name-head">BERT TEXT Summarizer</h1>
+    
+                </a>
+            </button>
+            <button class="box1">
+                <a href="{{url_for('nlp')}}">
+    
+                    <h1 class="name-head">NLP Summarizer Model</h1>
+    
+                </a>
+            </button>
+            <button class="box1">
+                <a href="{{url_for('video')}}">
+    
+                    <h1 class="name-head">Video Summarizer </h1>
+    
+                </a>
+            </button>
+        </div>
+        </div>
+    
+    
+            
 
-        </a>
-    </button>
-    <button>
-        <a href="{{url_for('nlp')}}">
-
-            <h1>NLP Summarizer Model</h1>
-
-        </a>
-    </button>
 
 </body>
 

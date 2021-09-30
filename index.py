@@ -29,7 +29,6 @@ def get_wiki_Content(url):
     return wiki_text
 
 
-
 @app.route("/bert", methods=['GET', 'POST'])
 def bert():
     if request.method == "POST":
@@ -45,8 +44,7 @@ def bert():
         result = model(data, num_sentences=5, min_length=60)
         url_content = ''.join(result)
         # pprint(full)
-
-        #eturn url_content
+        #return url_content
         return render_template("summary.html" , output=url_content)
     else:
         return render_template("bert.html")
@@ -110,7 +108,7 @@ def nlp_summarize(data):
 
 @app.route("/news", methods=['GET', 'POST'])
 def news():
-    url1='https://en.wikipedia.org/wiki/Java_(programming_language)'
+    url1='https://www.bbc.com/news/world-asia-58729701'
     # url1='https://www.nydailynews.com/'
     url2='https://en.wikipedia.org/wiki/Python_(programming_language)'
     if request.method == "POST":
@@ -126,6 +124,25 @@ def news():
             text=get_wiki_Content(url2)
             summerize_text=nlp_summarize(text)
             return render_template("summary.html" , output=summerize_text)
+        elif  request.form.get("submit_c"):
+            print("button 3")
+            filename=request.form['file']
+            print(filename)
+            
+            with open(filename,encoding="utf8") as file:
+                print('File found')
+                text=file.read()
+                summerize_text=nlp_summarize(text)
+
+                return render_template("summary.html" , output=summerize_text)
+           
+            #     data=file.read().replace('\n','')
+            # data = data.replace("\ufeff", "")
+            # summerize_text=nlp_summarize(data)
+            # return render_template("summary.html" , output=summerize_text)
+
+            
+
 	    
     return render_template("news.html")
 
@@ -141,7 +158,15 @@ def notes():
 
     return render_template("notes.html") 
 
-
+@app.route("/video", methods=['GET', 'POST'])
+def video():
+    if request.method == "POST":
+        # url = request.form.get("url")
+        url=request.form['url']
+        
+        return render_template("summary.html" , output=url)
+    else:
+        return render_template("video.html")
 
 
 if __name__ == "__main__":

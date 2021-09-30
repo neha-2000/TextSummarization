@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .btn{
-            padding: 20px 50px 20px 50px;
-            border : none;
+        .btn {
+           margin-bottom: 20px ;
+            border: none;
             color: white;
-            background-color: crimson;
+            
+            
+            width: 400px;
+            height: 50px;
+            font-size:20px;
+            
+            /* padding: 10px 10px 10px 10px; */
+            border: none;
+            border-radius: 40px;
+            background: green;
         }
+        .container{
+            
+            width: 90%;
+            height: 700px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            text-align: center;
+            background-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(61, 54, 54) 100%), url("/static/img/bg1.jpeg");
+            background-blend-mode: color;
+            width: 100%;
+        }
+        .container h2{
+            background: red;
+            padding: 20px 20px 20px 20px;
+            border-radius: 30px;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 20px;
+            color: rgb(240, 245, 243);
+        }
+        .btn:hover{
+            background: black;
+            border: 2px solid white;
+            
+        }
+        .container:hover{
+            background-image: linear-gradient(to right,blue 0%,red 100%),url("/static/img/bg1.jpeg");
+
+        }
+        
     </style>
 </head>
-<body>
-   <form action="http://127.0.0.1:5000/news" method="post"  class="form">
-        <input class="btn" type="submit" name="submit_a" value="Java"> 
-        <input class="btn" type="submit" name="submit_b" value="Python">
-   </form>
 
+<body>
+    <div class="container">
+        <h2>Here we Summarize content Whether you have a research paper, blog content, news article, or any other document, this summarize tool will provide the exact information that you want.
+            The summarizer further provides the following features:</h2>
+        <form action="http://127.0.0.1:5000/news" method="post" class="form">
+            <input class="btn" type="submit" name="submit_a" value="www.bbc.com">
+            <input class="btn" type="submit" name="submit_b" value="python wiki">
+            
+            <input type="file" name="file">
+            <input class="btn" type="submit" name="submit_c" value="Submit file name">
+        </form>
+    </div>
 </body>
+
 </html>

@@ -1,26 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            text-align: center;
+            background-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(61, 54, 54) 100%), url("/static/img/bg1.jpeg");
+            background-blend-mode: color;
+            width: 100%;
+            height: 800px;
+        }
+
+        .box1 {
+
+            width: 332px;
+            height: 300px;
+            left: 185px;
+            top: 200px;
+            background: #ffa81e;
+            border-radius: 60px;
+        }
+        .box1:hover{
+            background: #00ccff;
+            color: white;
+        }
+        .center {
+            position: absolute;
+            top: 20%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .b1head {
+            width: 310px;
+            height: 56px;
+            left: 10px;
+            top: 20px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 47px;
+            text-align: center;
+            color: #000000;
+        }
+        .title{
+            color: white;
+            font-size: 30px;
+            margin-top: 30px;
+            background: crimson;
+            height: 50px;
+            padding: 20px 20px 20px 20px;
+            width: 50%;
+            border-radius: 30px;
+
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body>
-    <button>
-        <a href="{{url_for('news')}}">
+   
+    <div class="container">
+        <h1 class="title">Click on any Card</h1>
+        <div class="center">
+            <button class="box1">
+                <a href="{{url_for('news')}}">
 
-            <h1>News</h1>
+                    <h1 class="b1head">News Extract</h1>
+                    
 
-        </a>
-        
-    </button>
-    <button>
-    <a href="{{url_for('notes')}}">
+                </a>
 
-        <h1>Notes</h1>
+            </button>
+            <button class="box1">
+                <a href="{{url_for('notes')}}">
 
-    </a>
-    </button>
+                    <h1 class="b1head">Notes Extract</h1>
+
+                </a>
+            </button>
+        </div>
+    </div>
 </body>
+
 </html>
