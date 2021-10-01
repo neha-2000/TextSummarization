@@ -7,7 +7,8 @@ It is  platform where every single user can summarize and save their time and th
 Natural language processing tools can help businesses analyze data and discover insights, automate time-consuming processes, and help them gain a competitive advantage.
 
 
-
+Technologies Used:
+Python , flask and Natural Language Processing 
 
 
 
